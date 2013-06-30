@@ -1,1 +1,14 @@
-<%= @data.inspect %>
+<ul>
+<% @data.each do |station| %>
+
+<li>Station Name: 
+  <%= station['name'] %>
+ | Latitude: 
+ <%= station['lat'] %> 
+ | Longitude: 
+ <%= station['lng'] %>
+</li>
+
+<% end %>
+
+</ul>

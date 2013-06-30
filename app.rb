@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler'
+require 'debugger'
 
 Bundler.require
 
@@ -18,5 +19,20 @@ module Citibike
       erb :home
     end
 
+    get '/form' do
+      erb :form
+    end
+
+    # post '/form' do
+    #   debugger
+    #   erb :show
+    # end
+
+    post '/map' do
+      @start = params['start']
+      debugger
+      @end = params['end']
+      erb :map
+    end
   end
 end
