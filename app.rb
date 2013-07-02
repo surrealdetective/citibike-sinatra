@@ -1,12 +1,15 @@
 require 'rubygems'
 require 'bundler'
 require 'debugger'
+require 'data_mapper'
 
 Bundler.require
 
 Dir.glob('./lib/*.rb') do |model|
   require model
 end
+
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/stations.db")
 
 module Citibike
 	class App < Sinatra::Application
@@ -16,7 +19,9 @@ module Citibike
     end
 
     get '/' do
-      erb :home
+      
+      
+      #erb :home
     end
 
     get '/form' do
